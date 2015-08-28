@@ -11,8 +11,8 @@ module.exports = function (modules, document) {
                     <div onClick= {this.handleClick.bind(null, 'Boom')}>XXX</div>
                 </h2>
         },
-        handleClick: function (e) {
-            console.log(e);
+        handleClick: function (me, e) {
+            e.target.textContent = me;
         }
     });
 
