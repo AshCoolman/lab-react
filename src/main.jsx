@@ -7,12 +7,12 @@ module.exports = function (modules, document) {
         render: function () {
             return <h2>
                     Hello there ok awesome!!
-                    <div onClick= {this.handleClick.bind(null, 'Bang')}>XXX</div>
-                    <div onClick= {this.handleClick.bind(null, 'Boom')}>XXX</div>
+                    <div onClick= {this.handleClick.bind(null, 'Bang', 'I shot my lover down')}>XXX</div>
+                    <div onClick= {this.handleClick.bind(null, 'Boom', '( there goes the )')}>XXX</div>
                 </h2>
         },
-        handleClick: function (me, e) {
-            e.target.textContent = me;
+        handleClick: function (bound1, bound2, e) {
+            e.target.textContent = [bound1, bound2].join(', ');
         }
     });
 
