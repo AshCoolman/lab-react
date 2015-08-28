@@ -3,25 +3,23 @@ module.exports = function (modules, document) {
     var React = modules.React;
     // React = require("react");
 
-    var LikeList = React.createClass({
+    var LikeListItem = React.createClass({
         getDefaultProps: function () {
             return {
                 text: 'Dunno!'
             }
         },
         render: function () {
-            return (
-            <ol>
-                <li>{this.props.text}</li>
-            </ol>
-            )
+            return <li>{this.props.text}</li>
         }
     });
     var App  = React.createClass({
         render: function () {
             return <div>
-                    <LikeList text="turtles"/>
-                    <LikeList/>
+                    <ol>
+                        <LikeListItem text="turtles"/>
+                        <LikeListItem/>
+                    </ol>
                 </div>
         },
         handleClick: function (bound1, bound2, e) {
