@@ -4,6 +4,10 @@ module.exports = function (modules, document) {
     // React = require("react");
 
     var LikeListItem = React.createClass({
+        propTypes: {
+            text: React.PropTypes.string.isRequired,
+            name: React.PropTypes.string.isRequired
+        },
         getDefaultProps: function () {
             return {
                 text: 'Dunno!'
@@ -17,7 +21,8 @@ module.exports = function (modules, document) {
         render: function () {
             return <div>
                     <ol>
-                        <LikeListItem text="turtles"/>
+                        <LikeListItem text="turtles" name="blah"/>
+                        <LikeListItem text="{}" name="blah"/>
                         <LikeListItem/>
                     </ol>
                 </div>
