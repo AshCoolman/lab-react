@@ -35,6 +35,8 @@ tip: Don't fuck with component nodes
         - before: `function (event) {`
         - bound 1: `function (argument1, event) {`
         - bound 2: `function (argument1, argument2, event) {`
+    - Interesting, re-bound due to re-render?
+        `{this.giveFuck.bind(null, !this.state.fuckGiven)}`
 
 # React props
 

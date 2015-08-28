@@ -4,16 +4,20 @@ module.exports = function (modules, document) {
     var React = modules.React;
 
     var Survey = React.createClass({
+        getInitialState: function () {
+            return {
+                fuckGiven: true
+            }
+        },
         giveFuck: function (input, e) {
             e.preventDefault();
-            this.setState({ fuckState: input });
+            this.setState({ fuckGiven: input });
         },
         render: function () {
             return <div>
-                Look at all these fucks I {this.state} give.
+                Look at all these fucks I {this.state.fuckGiven ? 'do' : 'don\'t'} give.
                 <div>
-                    <button onClick={this.giveFuck.bind(null, 'do')}>do</button>
-                    <button onClick={this.giveFuck.bind(null, 'dont')}>don&apos;t</button>
+                    <button onClick={this.giveFuck.bind(null, !this.state.fuckGiven)}>toggle</button>
                 </div>
             </div>
         }
