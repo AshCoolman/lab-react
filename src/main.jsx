@@ -3,12 +3,15 @@ console.clear();
 module.exports = function (modules, document) {
     var React = modules.React;
 
-    var LikeList = React.createClass({
-        componentDidMount: function () {
-            console.log(this.refs.first.getDOMNode())
-        },
+    var Like = React.createClass({
         render: function () {
-            return <ol> <LikeListItem ref="first" text="turtles"/> </ol>
+            return <LikeList><LikeListItem ref="first" text="turtles"/> </LikeList>
+        }
+    });
+
+    var LikeList = React.createClass({
+        render: function () {
+            return <ol> { this.props.children } </ol>
         }
     });
 
@@ -18,9 +21,10 @@ module.exports = function (modules, document) {
         }
     });
 
+
     var App  = React.createClass({
         render: function () {
-            return <LikeList/>
+            return <Like/>
         }
     });
 
