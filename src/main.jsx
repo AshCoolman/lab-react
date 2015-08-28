@@ -4,6 +4,11 @@ module.exports = function (modules, document) {
     // React = require("react");
 
     var LikeList = React.createClass({
+        getDefaultProps: function () {
+            return {
+                text: 'Dunno!'
+            }
+        },
         render: function () {
             return (
             <ol>
@@ -16,6 +21,7 @@ module.exports = function (modules, document) {
         render: function () {
             return <div>
                     <LikeList text="turtles"/>
+                    <LikeList/>
                 </div>
         },
         handleClick: function (bound1, bound2, e) {
