@@ -55,6 +55,17 @@ tip: Don't fuck with component nodes
 * Alt to mess of classes etc for mapping
 * Component dom directory
 
+## JSX XML
+
+* `className` not `class`
+* `checked` not `checked="true"`  (`this.checked == true`)
+
+
+## React State
+
+
+
+
 Q. Lifecycle event hooks
 
 # Essential methods
