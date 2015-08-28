@@ -7,14 +7,12 @@ module.exports = function (modules, document) {
         render: function () {
             return <h2>
                     Hello there ok awesome!!
-                    <div onClick= {this.handleClick} data-msg="Hey">Hey</div>
-                    <div onClick= {this.handleClick} data-msg="Boom">Boom</div>
+                    <div onClick= {this.handleClick.bind(null, 'Bang')}>XXX</div>
+                    <div onClick= {this.handleClick.bind(null, 'Boom')}>XXX</div>
                 </h2>
         },
         handleClick: function (e) {
-            e.preventDefault();
-            var msg = e.target.getAttribute('data-msg');
-            console.log(msg);
+            console.log(e);
         }
     });
 
