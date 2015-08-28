@@ -63,7 +63,10 @@ tip: Don't fuck with component nodes
 
 ## React State
 
-
+* only components can mutate their state
+* Mutation = re-render
+* State = internal decisions only = not should/need published
+* 
 
 
 Q. Lifecycle event hooks
