@@ -33,7 +33,8 @@ tip: Don't fuck with component nodes
     - Keep it so when using partials: `handler.bind(null, 'arg');`
     - Note partials change arguments:
         - before: `function (event) {`
-        - bound: `function (argument, event) {`
+        - bound 1: `function (argument1, event) {`
+        - bound 2: `function (argument1, argument2, event) {`
 
 # React props
 
@@ -50,8 +51,9 @@ tip: Don't fuck with component nodes
 
 ## `ref`
 
-* Reference to instance available to all within `render()`
-
+* Allows you to tag anything in `render()`, and then easily refer to it in configObj
+* Alt to mess of classes etc for mapping
+* Component dom directory
 
 Q. Lifecycle event hooks
 
