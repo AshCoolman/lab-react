@@ -1,25 +1,38 @@
 console.clear();
-
+console.log('ok');
 module.exports = function (modules, document) {
     var React = modules.React;
 
     var Survey = React.createClass({
         getInitialState: function () {
             return {
-                fuckGiven: true
+                peopleCsv: [
+                    "ash,blue,black",
+                    "george,black,gold",
+                    "sandy,yellow,silver"
+                ]
             }
         },
-        giveFuck: function (input, e) {
-            e.preventDefault();
-            this.setState({ fuckGiven: input });
-        },
         render: function () {
-            return <div>
-                Look at all these fucks I {this.state.fuckGiven ? 'do' : 'don\'t'} give.
+            return (
                 <div>
-                    <button onClick={this.giveFuck.bind(null, !this.state.fuckGiven)}>toggle</button>
-                </div>
+                {
+                    this.state.peopleCsv.map( function (e, i, a) {
+                        var name, top, bottom;
+                        [ name, top, bottom ] = e.split(',');
+                        console.log([name, top, bottom]);
+                        return <div>
+                            <p>
+                                <i style={{color: 'grey'}}>{ name }</i>
+                                <div style={{color: top }}>top</div>
+                                <div style={{color: bottom }}>bottom</div>
+                            </p>
+
+                        </div>
+                    })
+                }
             </div>
+            )
         }
     });
 
