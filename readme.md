@@ -35,7 +35,7 @@ tip: Don't fuck with component nodes
         - before: `function (event) {`
         - bound 1: `function (argument1, event) {`
         - bound 2: `function (argument1, argument2, event) {`
-    - Interesting, re-bound due to re-render?
+    - Interesting, re-bound due to re-render? **NOPE `setState()` = rerender!**
         `{this.giveFuck.bind(null, !this.state.fuckGiven)}`
 
 # React props
@@ -68,8 +68,16 @@ tip: Don't fuck with component nodes
 * only components can mutate their state
 * Mutation = re-render
 * State = internal decisions only = not should/need published
-* 
+* *Never directly edit this.state use `setState()`*
+* *Antipattern (source of truth)* initial state from props, better to "compute on the fly":
 
+```
+  getInitialState: function() {
+    // naming it initialX clearly indicates that the only purpose
+    // of the passed down prop is to initialize something internally
+    return {count: this.props.initialCount};
+  },
+```
 
 Q. Lifecycle event hooks
 
