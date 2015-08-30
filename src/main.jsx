@@ -14,9 +14,13 @@ module.exports = function (modules, document) {
             }
         },
         render: function () {
+            if (!this.state['peopleCsv']) {
+                return <p>You dun fucked up son</p>
+            }
             return (
                 <div>
                 {
+
                     this.state.peopleCsv.map( function (e, i, a) {
                         var name, top, bottom;
                         [ name, top, bottom ] = e.split(',');
