@@ -57,6 +57,38 @@ tip: Don't fuck with component nodes
 * Alt to mess of classes etc for mapping
 * Component dom directory
 
+## `key`
+
+* Unique identifier for components returned from `map` to help diffing
+* * see: http://facebook.github.io/react/docs/reconciliation.html#keys
+
+
+# Nesting
+
+Yay
+
+# Mix-ins
+
+Yuck
+
+>There is no standard and universal way to define mixins in JavaScript. In fact, several features to support mixins were dropped from ES6 today. There are a lot of libraries with different semantics. We think that there should be one way of defining mixins that you can use for any JavaScript class. React just making another doesn’t help that effort.
+
+Wow. Cool. React is so ballsy with its idiomatic-javascript-or-the-highway attitude.
+
+I'm not sure I hate DSLs as much as some of these guys but, in this post-ES5 age it is exciting.
+
+I probably think DSL's are great, but should never be over-invested in. You should have it lite enough, that you can just drop it and go back to idiomatic once its done. _Perhaps_ a good DSL rule of thumb is: Specific problem domains yes, frameworks no.
+
+# Higher order components
+
+https://gist.github.com/sebmarkbage/ef0bf1f338a7182b6775
+
+Seems nice, with a teeny bit of convention you can "compose" in a pseudo-inheritance kind of way.
+
+https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750
+
+https://github.com/acdlite/flummox/blob/v3.5.1/docs/docs/guides/why-flux-component-is-better-than-flux-mixin.md
+
 ## JSX XML
 
 * `className` not `class`
@@ -79,7 +111,28 @@ tip: Don't fuck with component nodes
   },
 ```
 
-Q. Lifecycle event hooks
+# React Lifecycle events hooks
+
+https://facebook.github.io/react/docs/component-specs.html
+
+## Updating
+
+### componentDidMount
+
+As soon as initial render:
+
+* Children `componentDidMount first`
+* **Async ops here**
+
+### componentWillReceiveProps
+
+When component receives new props:
+
+* not initial render
+* react w/`setState()` to property change pre-render
+
+### shouldComponentUpdate
+
 
 # Essential methods
 
@@ -106,11 +159,17 @@ Props before overwritten by parent
 
 ? component parts
 
-## componentWillMount
+## componentDidMount
 
-? the required config is known
+* As soon as initial render
+* Children `componentDidMount first`
+* **Async ops here**
 
 ## shouldComponentUpdate
 
 ? Data based predicate determining if the component needs re-rendering
 
+# Next steps
+
+http://facebook.github.io/react/docs/thinking-in-react.html
+https://github.com/kriasoft/react-decorators
