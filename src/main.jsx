@@ -3,16 +3,7 @@ module.exports = function (modules, document) {
     var React = modules.React;
 
     var Survey = React.createClass({
-        getInitialState: function () {
-            return {
-                peopleCsv: [
-                    "ash,blue,black",
-                    "george,black,gold",
-                    "sandy,yellow,silver"
-                ]
-            }
-        },
-        generatePeopleCsv: function () {
+        _generatePeopleCsv: function () {
 
             var getRandom = function (names) {
                 return names[Math.round(names.length * Math.random())];
@@ -34,15 +25,18 @@ module.exports = function (modules, document) {
             }
             this.setState({peopleCsv:people});
         },
+        componentDidMount: function () {
+            setTimeout( function() {
+                this._generatePeopleCsv();
+            }.bind(this), Math.random() * 4);
+        },
         render: function () {
-            if (!this.state['peopleCsv']) {
+            console.log(this.state);
+            if (!this.state || !this.state['peopleCsv']) {
                 return <p>You dun fucked up son</p>
             }
             return (
                 <div>
-                    <div>
-                        <button onClick={this.generatePeopleCsv}>generatePeopleCsv</button>
-                    </div>
                 {
 
                     this.state.peopleCsv.map( function (e, i, a) {
